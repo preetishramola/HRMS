@@ -1,0 +1,24 @@
+# Environment variables & secrets - NEVER commit these
+.env
+src/main/resources/application.yml
+src/main/resources/application-*.yml
+!src/main/resources/application.yml.example
+
+# Maven
+target/
+*.class
+*.jar
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db

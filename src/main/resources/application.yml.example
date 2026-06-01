@@ -1,0 +1,80 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/hrmsdb
+    username: your_db_username
+    password: your_db_password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 2000ms
+
+  ai:
+    openai:
+      base-url: https://api.groq.com/openai
+      api-key: YOUR_GROQ_API_KEY
+      chat:
+        options:
+          model: llama-3.3-70b-versatile
+          temperature: 0.7
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your_gmail@gmail.com
+    password: your_gmail_app_password
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:your-jwt-secret-min-32-chars}
+    expiration: 86400000
+
+  cloudinary:
+    cloud-name: your_cloudinary_cloud_name
+    api-key: your_cloudinary_api_key
+    api-secret: your_cloudinary_api_secret
+
+  gemini:
+    api-key: YOUR_GEMINI_API_KEY
+    base-url: https://generativelanguage.googleapis.com/v1
+
+  mail:
+    from: your_gmail@gmail.com
+    from-name: HRMS Platform
+
+  recruitment:
+    screening-threshold: 65
+
+  frontend-url: http://localhost:3000
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.PreetishRamola.hrms: DEBUG
+    org.springframework.security: INFO
